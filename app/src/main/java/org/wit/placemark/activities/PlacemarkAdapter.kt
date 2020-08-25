@@ -1,12 +1,11 @@
 package org.wit.placemark.activities
 
+//import kotlinx.android.synthetic.main.activity_placemark.view.* import commented out due to causing 'overload resolution ambiguity'
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-//import kotlinx.android.synthetic.main.activity_placemark.view.*
 import kotlinx.android.synthetic.main.card_placemark.view.*
-import kotlinx.android.synthetic.main.card_placemark.view.placemarkTitle
 import org.wit.placemark.R
 import org.wit.placemark.helpers.readImageFromPath
 import org.wit.placemark.models.PlacemarkModel

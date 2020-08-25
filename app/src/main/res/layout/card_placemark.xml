@@ -55,5 +55,6 @@
         android:layout_toRightOf="@+id/imageIcon"
         android:text="Phone no.: "/>
 
+
   </RelativeLayout>
 </androidx.cardview.widget.CardView>
