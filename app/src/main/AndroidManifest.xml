@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="org.wit.placemark">
 
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <uses-feature android:name="android.hardware.type.watch" />
+
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
@@ -13,8 +17,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".activities.SplashActivity"
-                  android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <activity
+            android:name=".activities.SplashActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -22,16 +27,25 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".activities.RegisterActivity"
+            android:label="@string/title_activity_register">
+        </activity>
+
+        <activity android:name=".activities.LoginActivity"/>
+        
+        <activity android:name=".activities.PlacemarkListActivity" />
+
+        <activity android:name=".activities.PlacemarkActivity" />
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
         <activity
             android:name=".activities.MapsActivity"
             android:label="@string/title_activity_maps" />
-        <activity android:name=".activities.PlacemarkActivity" />
 
-        <activity android:name=".activities.PlacemarkListActivity">
-        </activity>
+
 
     </application>
 
