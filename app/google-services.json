@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "102887806344",
+    "firebase_url": "https://cardealer-bc2f8.firebaseio.com",
+    "project_id": "cardealer-bc2f8",
+    "storage_bucket": "cardealer-bc2f8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:102887806344:android:991b508262406657c5163d",
+        "android_client_info": {
+          "package_name": "org.wit.placemark"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "102887806344-6gl4rckukkceeqoa59n0jt8u601phst3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAyMETTMjcqjelFvMtJ8Ble4Mj3Xfjl1MM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "102887806344-6gl4rckukkceeqoa59n0jt8u601phst3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

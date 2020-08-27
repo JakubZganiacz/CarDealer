@@ -2,9 +2,11 @@ package org.wit.placemark.activities
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.*
+import android.view.Menu
+import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_placemark_list.*
 import org.jetbrains.anko.intentFor
 import org.jetbrains.anko.startActivityForResult
@@ -20,6 +22,9 @@ class PlacemarkListActivity : AppCompatActivity(), PlacemarkListener {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_placemark_list)
     app = application as MainApp
+
+    verifyUserIsLoggedIn()
+
     toolbar.title = title
     setSupportActionBar(toolbar)
 
@@ -27,7 +32,20 @@ class PlacemarkListActivity : AppCompatActivity(), PlacemarkListener {
     recyclerView.layoutManager = layoutManager
     recyclerView.adapter = PlacemarkAdapter(app.placemarks.findAll(), this)
     loadPlacemarks()
+
+
   }
+
+  private fun verifyUserIsLoggedIn() {
+    val uid = FirebaseAuth.getInstance().uid
+    if (uid == null) {
+      val intent = Intent(this, RegisterActivity::class.java)
+      intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
+      startActivity(intent)
+    }
+  }
+
+
 
   private fun loadPlacemarks() {
     showPlacemarks( app.placemarks.findAll())
@@ -45,7 +63,15 @@ class PlacemarkListActivity : AppCompatActivity(), PlacemarkListener {
 
   override fun onOptionsItemSelected(item: MenuItem?): Boolean {
     when (item?.itemId) {
-      R.id.item_add -> startActivityForResult<PlacemarkActivity>(0)
+      R.id.item_add -> {
+        startActivityForResult<PlacemarkActivity>(0)
+    }
+      R.id.menu_sign_out -> {
+        FirebaseAuth.getInstance().signOut()
+        val intent = Intent(this, RegisterActivity::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
+        startActivity(intent)
+      }
     }
     return super.onOptionsItemSelected(item)
   }
