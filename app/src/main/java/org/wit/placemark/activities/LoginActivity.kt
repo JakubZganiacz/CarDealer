@@ -3,6 +3,7 @@ package org.wit.placemark.activities
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_login.*
@@ -34,6 +35,8 @@ class LoginActivity: AppCompatActivity() {
                 }
                 .addOnFailureListener() {
                     Log.d("Main", "Failed to login user: ${it.message}")
+                    Toast.makeText(this, "Failed to login user: ${it.message}", Toast.LENGTH_SHORT)
+                        .show()
                 }
 
         }
